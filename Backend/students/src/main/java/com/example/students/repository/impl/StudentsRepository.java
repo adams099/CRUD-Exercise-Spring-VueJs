@@ -62,4 +62,11 @@ public class StudentsRepository implements IStudentsRepository {
         return result;
     }
 
+    @Override
+    public Students getStudentsById(int id) {
+        // TODO Auto-generated method stub
+        String query = "SELECT * FROM tb_students WHERE id = ?";
+        return jdbcTemplate.queryForObject(query, new BeanPropertyRowMapper<>(Students.class), id);
+    }
+
 }

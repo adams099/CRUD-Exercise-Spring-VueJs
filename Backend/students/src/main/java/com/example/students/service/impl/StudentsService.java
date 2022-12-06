@@ -39,4 +39,10 @@ public class StudentsService implements IStudentsService {
         return studentsRepository.deleteStudents(id);
     }
 
+    @Override
+    public Students getStudentsById(int id) {
+        // TODO Auto-generated method stub
+        return studentsRepository.getStudentsById(id);
+    }
+
 }

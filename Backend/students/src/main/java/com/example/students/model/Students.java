@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class Students {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     private String deskripsi_diri;
     private String email;
@@ -22,11 +22,11 @@ public class Students {
     private String soft_skill;
     private Integer umur;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -12,4 +12,6 @@ public interface IStudentsService {
     public Students updateStudents(int id, Students students);
 
     public Students deleteStudents(int id);
+
+    public Students getStudentsById(int id);
 }
