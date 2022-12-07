@@ -9,9 +9,6 @@
       <router-link to="/" v-else-if="Judul === 'Update'">
         <button class="back btn btn-primary mt-3">Back</button>
       </router-link>
-      <button class="btn btn-primary" @click="RefreshFunc" v-else>
-        Refresh
-      </button>
     </div>
   </div>
 </template>
@@ -32,9 +29,6 @@ export default {
       } else {
         this.Judul = "Update";
       }
-    },
-    RefreshFunc() {
-      location.reload();
     },
   },
   mounted() {

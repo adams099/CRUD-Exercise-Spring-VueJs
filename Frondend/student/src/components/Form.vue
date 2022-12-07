@@ -63,7 +63,7 @@
                     <textarea v-model="studentsData.deskripsi_diri" class="form-control" id="selfdescriptions"
                         rows="3"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">{{ buttonValue }}</button>
             </form>
 
             <Success v-show="success"></Success>
@@ -95,6 +95,7 @@ export default {
                 umur: null,
             },
             success: false,
+            buttonValue: "Submit"
         };
     },
 
@@ -127,6 +128,10 @@ export default {
 
         getStudentsById() {
             let id = this.$route.params.id;
+            if (id > 0) {
+                this.buttonValue = "Update";
+            }
+
             StudentsServices.getStudentsById(id)
                 .then((response) => {
                     this.studentsData = response.data;
