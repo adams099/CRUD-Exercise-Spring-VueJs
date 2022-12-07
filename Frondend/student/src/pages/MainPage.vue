@@ -1,9 +1,7 @@
 <template>
   <div class="">
     <BennerImage class="img"></BennerImage>
-    <div>
-      <Card class="col-12 m-3"></Card>
-    </div>
+    <Card></Card>
     <Footer></Footer>
   </div>
 </template>
