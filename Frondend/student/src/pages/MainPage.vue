@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <BennerImage class="img"></BennerImage>
+  <div>
+    <BennerImage></BennerImage>
     <Card></Card>
     <Footer></Footer>
   </div>
@@ -22,8 +22,5 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  display: flex;
-  flex-wrap: wrap;
-}
+
 </style>

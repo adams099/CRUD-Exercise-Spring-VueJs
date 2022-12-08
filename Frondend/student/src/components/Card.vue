@@ -2,12 +2,12 @@
   <div>
     <div>
       <router-link to="/add">
-        <button class="btn btn-primary my-3 ml-3">Add</button>
+        <button class="btn btn-primary my-3 ml-3" v-show="!success">Add</button>
       </router-link>
     </div>
 
     <div v-if="studentData.length > 0" class="card-container d-flex flex-wrap">
-      <div class="col-4 mt-4" v-for="(item) in studentData" :key="item.id">
+      <div class="col-4 mt-4" v-for="(item) in studentData" :key="item.id" v-show="!success">
         <div class="card p-3 border">
           <h5>{{ item.nama }}, {{ item.umur }} years old.</h5>
           <p>{{ item.deskripsi_diri }}</p>
@@ -49,18 +49,27 @@
     <div v-else>
       <h1 align="center">Tidak ada data yang ditampilkan!</h1>
     </div>
+    <center>
+      <Success v-show="success" class="text-left mt-5 mb-5" id="successC"></Success>
+    </center>
   </div>
 </template>
 
 <script>
 import StudentServices from "@/services/StudentServices.js";
+import Success from "./Success.vue";
 
 export default {
   name: "CardS",
 
+  components: {
+    Success
+  },
+
   data() {
     return {
       studentData: null,
+      success: false
     };
   },
 
@@ -82,12 +91,11 @@ export default {
         StudentServices.deleteStudents(id)
           .then((response) => {
             console.log(response.data);
-            location.reload();
+            this.success = true;
           })
           .catch((e) => {
             console.log(e);
           });
-        // this.success = true;
       } else {
         alert("Hapus Dibatalkan");
       }
@@ -100,7 +108,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 img {
   width: 50px;
   height: auto;
@@ -109,5 +117,9 @@ img {
 .Female {
   width: auto;
   height: 50px;
+}
+
+#successC {
+  width: 50%;
 }
 </style>
